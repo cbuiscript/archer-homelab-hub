@@ -9,7 +9,6 @@ Thank you for your interest in contributing to the Homeserver project! This docu
 - **Go 1.21+** for backend development
 - **Node.js 18+** for frontend development
 - **pnpm** for package management (recommended)
-- **Docker** (optional, for containerized development)
 
 ### Quick Start
 
@@ -46,8 +45,7 @@ Thank you for your interest in contributing to the Homeserver project! This docu
 ```
 ├── backend/              # Go API server
 │   ├── main.go          # Main server file
-│   ├── go.mod           # Go dependencies
-│   └── Dockerfile       # Backend container
+│   └── go.mod           # Go dependencies
 ├── frontend/            # SvelteKit web application
 │   ├── src/            # Source files
 │   │   ├── routes/     # SvelteKit routes
@@ -55,7 +53,6 @@ Thank you for your interest in contributing to the Homeserver project! This docu
 │   └── package.json    # Node dependencies
 ├── .env.example        # Environment variables template
 ├── .gitignore          # Git ignore rules
-├── docker-compose.yml  # Docker services
 └── Makefile           # Development commands
 ```
 
@@ -157,18 +154,10 @@ pnpm check # Type checking
 make build
 ```
 
-### Docker Build
-
-```bash
-make docker-build
-make docker-up
-```
-
 ### Production Deployment
 
 1. Build the frontend: `cd frontend && pnpm build`
 2. Build the backend: `cd backend && go build -o homeserver main.go`
-3. Or use Docker: `docker-compose up --build`
 
 ## Environment Variables
 

@@ -1,4 +1,4 @@
-.PHONY: help dev build clean docker-build docker-up docker-down backend frontend install test
+.PHONY: help dev build clean backend frontend install test
 
 # Default target
 help: ## Show this help message
@@ -37,19 +37,6 @@ build-backend: ## Build only the backend
 build-frontend: ## Build only the frontend
 	@cd frontend && pnpm build
 
-# Docker
-docker-build: ## Build Docker images
-	@docker-compose build
-
-docker-up: ## Start services with Docker Compose
-	@docker-compose up -d
-
-docker-down: ## Stop Docker Compose services
-	@docker-compose down
-
-docker-logs: ## View Docker Compose logs
-	@docker-compose logs -f
-
 # Testing
 test: ## Run tests for both backend and frontend
 	@echo "Running backend tests..."
@@ -84,4 +71,3 @@ init-git: ## Initialize git repository with initial commit
 setup: install ## Complete project setup
 	@echo "Project setup complete!"
 	@echo "Run 'make dev' to start development servers"
-	@echo "Run 'make docker-up' to start with Docker"

@@ -1,15 +1,15 @@
 # Homeserver
 
-A modern homeserver application with Go backend and SvelteKit frontend.
+A modern homeserver application with Go backend and SvelteKit fro   cd frontend && pnpm dev  # or npm run dev
+   ```
 
-## Project Structure
+## API Endpointsroject Structure
 
 ```
 ├── backend/               # Go API server
 │   ├── main.go           # Main server file
 │   ├── go.mod            # Go dependencies
-│   ├── go.sum            # Go dependency checksums
-│   └── Dockerfile        # Backend container
+│   └── go.sum            # Go dependency checksums
 ├── frontend/             # SvelteKit web application
 │   ├── src/              # Source files
 │   │   ├── routes/       # SvelteKit routes
@@ -23,11 +23,9 @@ A modern homeserver application with Go backend and SvelteKit frontend.
 │   └── vite.config.ts    # Vite configuration
 ├── .env.example          # Environment variables template
 ├── .gitignore            # Git ignore rules
-├── .dockerignore         # Docker ignore rules
 ├── CONTRIBUTING.md       # Development guidelines
 ├── LICENSE               # MIT License
 ├── Makefile              # Development automation
-├── docker-compose.yml    # Docker services
 └── README.md             # This file
 ```
 
@@ -135,8 +133,6 @@ make build         # Build for production
 make test          # Run tests
 make lint          # Run linters
 make clean         # Clean build artifacts
-make docker-up     # Start with Docker
-make docker-down   # Stop Docker services
 ```
 
 ### Frontend Development
@@ -177,18 +173,6 @@ make build
    cd backend && go build -o homeserver main.go
    ```
 
-### Docker Deployment
-```bash
-# Install Node.js adapter for Docker builds
-cd frontend && pnpm add -D @sveltejs/adapter-node
-
-# Build and run with Docker
-make docker-build
-make docker-up
-# or manually:
-# docker-compose up --build
-```
-
 ## Configuration
 
 ### Environment Variables
@@ -223,7 +207,6 @@ The backend is configured to allow requests from:
 
 - Backend logs are output to console
 - Frontend dev server logs are in the terminal
-- Production logs can be configured in docker-compose.yml
 
 ## Contributing
 
