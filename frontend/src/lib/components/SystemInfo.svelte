@@ -80,12 +80,12 @@
 					<dt class="text-sm font-medium text-gray-500 dark:text-gray-400">CPU Usage</dt>
 					{#if systemData.cpu.usage_percent && systemData.cpu.usage_percent.length > 0}
 						<dd class="mt-1 text-sm text-gray-900 dark:text-white">
-							{(systemData.cpu.usage_percent.reduce((a, b) => a + b, 0) / systemData.cpu.usage_percent.length).toFixed(1)}%
+							{(systemData.cpu.usage_percent.reduce((a: number, b: number) => a + b, 0) / systemData.cpu.usage_percent.length).toFixed(1)}%
 						</dd>
 						<div class="mt-2 w-full bg-gray-200 rounded-full h-2">
 							<div
 								class="bg-green-600 h-2 rounded-full"
-								style="width: {(systemData.cpu.usage_percent.reduce((a, b) => a + b, 0) / systemData.cpu.usage_percent.length)}%"
+								style="width: {(systemData.cpu.usage_percent.reduce((a: number, b: number) => a + b, 0) / systemData.cpu.usage_percent.length)}%"
 							></div>
 						</div>
 					{:else}
