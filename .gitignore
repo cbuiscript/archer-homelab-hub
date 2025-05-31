@@ -85,7 +85,7 @@ build/
 .svelte-kit/
 
 # Docker
-.dockerignore
+
 
 # Data directories
 data/

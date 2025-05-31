@@ -15,8 +15,8 @@ Thank you for your interest in contributing to the Homeserver project! This docu
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd homeserver
+   git clone https://github.com/ad-archer/archer-homelab-hub
+   cd archer-homelab-hub
    ```
 
 2. **Install dependencies**:

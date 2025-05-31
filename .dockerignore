@@ -1,0 +1,58 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+
+# Node modules
+node_modules
+npm-debug.log*
+
+# Build artifacts
+dist
+build
+.output
+
+# Development files
+.env.local
+.env.development
+.env.test
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs
+
+# Runtime data
+pids
+*.pid
+
+# Coverage
+coverage
+.nyc_output
+
+# Dependencies
+vendor/
+
+# Go build cache
+.cache
+
+# Temporary files
+tmp/
+temp/
+
+# SvelteKit
+.svelte-kit
