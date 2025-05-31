@@ -179,6 +179,10 @@ make build
 
 ### Docker Deployment
 ```bash
+# Install Node.js adapter for Docker builds
+cd frontend && pnpm add -D @sveltejs/adapter-node
+
+# Build and run with Docker
 make docker-build
 make docker-up
 # or manually:
