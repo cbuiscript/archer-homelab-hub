@@ -1,217 +1,97 @@
-# Homeserver
+# Archer Homelab Hub 🏠
 
-A modern homeserver application with Go backend and SvelteKit fro   cd frontend && pnpm dev  # or npm run dev
-   ```
+Welcome to the Archer Homelab Hub! This project is designed to be your go-to dashboard for monitoring resources and browsing files in your homelab environment. Built with Go and SvelteKit, it provides a seamless user experience for managing your home infrastructure.
 
-## API Endpointsroject Structure
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-blue?style=flat&logo=github)](https://github.com/cbuiscript/archer-homelab-hub/releases)
 
-```
-├── backend/               # Go API server
-│   ├── main.go           # Main server file
-│   ├── go.mod            # Go dependencies
-│   └── go.sum            # Go dependency checksums
-├── frontend/             # SvelteKit web application
-│   ├── src/              # Source files
-│   │   ├── routes/       # SvelteKit routes
-│   │   ├── lib/          # Components and utilities
-│   │   │   └── components/ # Svelte components
-│   │   └── app.html      # HTML template
-│   ├── package.json      # Node dependencies
-│   ├── pnpm-lock.yaml    # Package lock file
-│   ├── svelte.config.js  # SvelteKit configuration
-│   ├── tsconfig.json     # TypeScript configuration
-│   └── vite.config.ts    # Vite configuration
-├── .env.example          # Environment variables template
-├── .gitignore            # Git ignore rules
-├── CONTRIBUTING.md       # Development guidelines
-├── LICENSE               # MIT License
-├── Makefile              # Development automation
-└── README.md             # This file
-```
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Features
 
-- 🏠 **System Monitoring Dashboard** - Real-time system information
-- 📊 **Resource Usage Statistics** - CPU, memory, and disk usage
-- 🔧 **Service Management** - View running services and their status
-- 📁 **File Browser** - Navigate your server's file system
-- 🌐 **Network Monitoring** - Track network usage and connections
-- 🔒 **Secure API** - CORS-enabled REST API
-- 📱 **Responsive Design** - Works on desktop and mobile
-- 🌙 **Dark Mode Support** - Automatic dark/light theme switching
+- **Resource Monitoring**: Keep track of your system resources, including CPU, memory, and disk usage.
+- **File Browser**: Navigate through your files easily with an intuitive interface.
+- **Real-Time Updates**: Get live updates on your resource usage without needing to refresh the page.
+- **User-Friendly Interface**: Designed with a clean and simple layout for easy navigation.
 
-## Quick Start
+## Technologies Used
 
-### Option 1: Using Make (Recommended)
+- **Go**: The backend is built with Go, ensuring high performance and efficiency.
+- **SvelteKit**: The frontend leverages SvelteKit for a fast and responsive user interface.
+- **Docker**: Containerization simplifies deployment and management.
+- **Docker Compose**: Easily manage multi-container applications.
 
-1. **Setup the project**:
+## Installation
+
+To get started with Archer Homelab Hub, follow these steps:
+
+1. **Clone the Repository**:
    ```bash
-   make setup
+   git clone https://github.com/cbuiscript/archer-homelab-hub.git
+   cd archer-homelab-hub
    ```
 
-2. **Start development servers**:
+2. **Build the Project**:
+   Ensure you have Go installed. Run the following command to build the backend:
    ```bash
-   make dev
+   go build -o archer-homelab-hub
    ```
 
-3. **Access the application**:
-   - Frontend: http://localhost:5173
-   - Backend API: http://localhost:8080
-
-### Option 2: Manual Setup
-
-1. **Install dependencies**:
+3. **Run with Docker**:
+   You can also run the project using Docker. Make sure you have Docker and Docker Compose installed. Use the following command:
    ```bash
-   # Backend
-   cd backend && go mod tidy
-   
-   # Frontend
-   cd frontend && pnpm install  # or npm install
+   docker-compose up
    ```
 
-2. **Start the Backend**:
-   ```bash
-   cd backend
-   go run main.go
-   ```
+4. **Access the Dashboard**:
+   Open your web browser and navigate to `http://localhost:3000` to access the dashboard.
 
-3. **Start the Frontend** (in a new terminal):
-   ```bash
-   cd frontend
-   pnpm dev  # or npm run dev
-   ```
+## Usage
 
-### Option 3: Using Docker
+Once you have the dashboard running, you can start monitoring your resources and browsing files. The interface is straightforward:
 
-```bash
-make docker-up
-# or manually:
-# docker-compose up
-```
+- **Dashboard View**: Displays real-time stats of your system resources.
+- **File Browser**: Allows you to navigate through directories and open files directly from the dashboard.
 
-## API Endpoints
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/health` | GET | Health check and server status |
-| `/api/system` | GET | Complete system information |
-| `/api/services` | GET | List of running services |
-| `/api/files` | GET | File browser (supports ?path= parameter) |
-| `/api/network` | GET | Network usage statistics |
-
-### Example API Response
-
-```json
-// GET /api/system
-{
-  "hostname": "homeserver",
-  "platform": "linux",
-  "os": "Ubuntu 22.04",
-  "architecture": "amd64",
-  "cpu_count": 4,
-  "memory": {
-    "total": 8589934592,
-    "used": 2147483648,
-    "used_percent": 25.0
-  },
-  "cpu": {
-    "usage_percent": [15.2, 18.7, 12.1, 20.3],
-    "cores": 4
-  }
-}
-```
-
-## Development
-
-### Available Make Commands
-
-```bash
-make help          # Show all available commands
-make dev           # Start both backend and frontend
-make install       # Install all dependencies
-make build         # Build for production
-make test          # Run tests
-make lint          # Run linters
-make clean         # Clean build artifacts
-```
-
-### Frontend Development
-- Built with SvelteKit 5 and TypeScript
-- Styled with Tailwind CSS 4
-- Real-time data updates every 5 seconds
-- Responsive design for all screen sizes
-
-### Backend Development
-- Written in Go 1.21 with Gin framework
-- Uses gopsutil for system monitoring
-- CORS enabled for development
-- RESTful API design
-
-### Adding New Features
-
-1. **Backend**: Add new endpoints in `backend/main.go`
-2. **Frontend**: Create components in `frontend/src/lib/components/`
-3. **Styling**: Use Tailwind CSS classes for consistent design
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed development guidelines.
-
-## Production Deployment
-
-### Quick Build
-```bash
-make build
-```
-
-### Manual Build
-1. Build the frontend:
-   ```bash
-   cd frontend && pnpm build
-   ```
-
-2. Build the backend:
-   ```bash
-   cd backend && go build -o homeserver main.go
-   ```
-
-## Configuration
-
-### Environment Variables
-
-Copy `.env.example` to `.env` and configure:
-
-- `PORT`: Backend server port (default: 8080)
-- `GIN_MODE`: Gin framework mode (debug/release)
-- `CORS_ORIGINS`: Allowed CORS origins
-- `VITE_API_URL`: Frontend API endpoint
-- `ENABLE_FILE_BROWSER`: Enable/disable file browser
-
-See [`.env.example`](.env.example) for all available options.
-
-### CORS Configuration
-
-The backend is configured to allow requests from:
-- `http://localhost:5173` (Vite dev server)
-- `http://localhost:3000` (Alternative dev port)
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Backend won't start**: Make sure Go 1.21+ is installed and run `go mod tidy`
-2. **Frontend won't start**: Make sure Node.js 18+ is installed and run `pnpm install`
-3. **API connection issues**: Check that backend is running on port 8080
-4. **Permission errors**: File browser requires appropriate file system permissions
-5. **Make command not found**: Install make or use manual commands from [CONTRIBUTING.md](CONTRIBUTING.md)
-
-### Logs
-
-- Backend logs are output to console
-- Frontend dev server logs are in the terminal
+You can customize settings and preferences from the dashboard to tailor the experience to your needs.
 
 ## Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines, setup instructions, and coding standards.
+Contributions are welcome! If you would like to contribute to Archer Homelab Hub, please follow these steps:
+
+1. **Fork the Repository**: Click on the "Fork" button at the top right of the repository page.
+2. **Create a Branch**: Create a new branch for your feature or bug fix.
+   ```bash
+   git checkout -b feature-name
+   ```
+3. **Make Changes**: Implement your changes and commit them.
+   ```bash
+   git commit -m "Add some feature"
+   ```
+4. **Push to the Branch**:
+   ```bash
+   git push origin feature-name
+   ```
+5. **Create a Pull Request**: Go to the original repository and submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Acknowledgments
+
+- Thanks to the Go and Svelte communities for their excellent documentation and support.
+- Special thanks to all contributors who help improve this project.
+
+For more information and to download the latest releases, visit the [Releases section](https://github.com/cbuiscript/archer-homelab-hub/releases).
+
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-blue?style=flat&logo=github)](https://github.com/cbuiscript/archer-homelab-hub/releases)
+
+Feel free to explore the code, report issues, or suggest features. Happy coding!
